@@ -1,4 +1,3 @@
-# got
 # Proyecto Final Libre - Tecnología de Programación 2023
 # Winter is Coming
 
