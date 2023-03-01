@@ -1,6 +1,7 @@
 package got;
 
 import java.io.*;
+import java.nio.charset.StandardCharsets;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.LinkedList;
@@ -21,7 +22,9 @@ public class Logic {
 		text="";
 		String toRead;
 		try {
-			BufferedReader inputReader = new BufferedReader(new FileReader(url));
+			FileInputStream fis = new FileInputStream(url);
+			InputStreamReader isr = new InputStreamReader(fis, StandardCharsets.UTF_8);
+			BufferedReader inputReader = new BufferedReader(isr);
 			while ((toRead = inputReader.readLine()) != null) {
 				text += replaceSigns(toRead);
 			}
@@ -49,7 +52,7 @@ public class Logic {
 	
 	
 	private String replaceSigns(String text) {
-		return text.replaceAll("[^\\w\\s]", "");
+		return text.replaceAll("\\p{Punct}", "");
 	}
 	
 	private LinkedList<String> mostUsedWords(HashMap<String, Integer> map){ 

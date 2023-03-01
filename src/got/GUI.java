@@ -24,6 +24,8 @@ import javax.swing.JLabel;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextPane;
+import java.awt.Color;
+import java.awt.SystemColor;
 
 public class GUI extends JFrame {
 
@@ -49,11 +51,13 @@ public class GUI extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 752, 348);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 102, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		btnDir = new JButton(resources.getString("dir"));
+		btnDir.setBackground(new Color(153, 204, 255));
 		btnDir.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				
@@ -62,18 +66,20 @@ public class GUI extends JFrame {
 			}
 		});
 		btnDir.setFont(new Font("HelvLight", Font.BOLD, 20));
-		btnDir.setBounds(30, 192, 215, 35);
+		btnDir.setBounds(42, 147, 249, 35);
 		contentPane.add(btnDir);
 		
 		txtLoadingFrom = new JTextField();
+		txtLoadingFrom.setBackground(new Color(153, 204, 255));
 		txtLoadingFrom.setFont(new Font("HelvLight", Font.PLAIN, 16));
 		txtLoadingFrom.setText(resources.getString("url"));
 		txtLoadingFrom.setEditable(false);
-		txtLoadingFrom.setBounds(10, 147, 255, 35);
+		txtLoadingFrom.setBounds(22, 102, 288, 35);
 		contentPane.add(txtLoadingFrom);
 		txtLoadingFrom.setColumns(10);
 		
 		btnExit = new JButton(resources.getString("exit"));
+		btnExit.setBackground(new Color(153, 204, 255));
 		btnExit.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
@@ -81,6 +87,7 @@ public class GUI extends JFrame {
 		});
 		
 		btnStart = new JButton(resources.getString("start"));
+		btnStart.setBackground(new Color(153, 204, 255));
 		btnStart.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				logica.readTxtFile(selectedFile);
@@ -92,27 +99,31 @@ public class GUI extends JFrame {
 		btnStart.setBounds(530, 192, 165, 35);
 		contentPane.add(btnStart);
 		
-		btnExit.setFont(new Font("HelvLight", Font.PLAIN, 20));
+		btnExit.setFont(new Font("HelvLight", Font.BOLD, 20));
 		btnExit.setBounds(563, 266, 165, 35);
 		contentPane.add(btnExit);
 		
 		JLabel lblMostUsed = new JLabel(resources.getString("most_used"));
+		lblMostUsed.setForeground(SystemColor.control);
 		lblMostUsed.setFont(new Font("HelvLight", Font.BOLD, 17));
 		lblMostUsed.setBounds(329, 10, 262, 26);
 		contentPane.add(lblMostUsed);
 		
 		lblPercent = new JLabel(resources.getString("pcnt"));
+		lblPercent.setForeground(SystemColor.control);
 		lblPercent.setFont(new Font("HelvLight", Font.BOLD, 17));
 		lblPercent.setBounds(601, 10, 94, 26);
 		contentPane.add(lblPercent);
 		
 		tpWords = new JTextPane();
+		tpWords.setBackground(new Color(153, 204, 255));
 		tpWords.setFont(new Font("HelvLight", Font.BOLD, 21));
 		tpWords.setBounds(329, 46, 262, 136);
 		tpWords.setEditable(false);
 		contentPane.add(tpWords);
 		
 		tpPercent = new JTextPane();
+		tpPercent.setBackground(new Color(153, 204, 255));
 		tpPercent.setFont(new Font("HelvLight", Font.BOLD, 21));
 		tpPercent.setBounds(601, 46, 94, 136);
 		tpPercent.setEditable(false);

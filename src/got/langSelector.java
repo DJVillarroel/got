@@ -15,6 +15,7 @@ import javax.swing.JRadioButton;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JLabel;
+import java.awt.Color;
 
 
 public class langSelector extends JFrame {
@@ -33,24 +34,31 @@ public class langSelector extends JFrame {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 560, 200);
 		contentPane = new JPanel();
+		contentPane.setBackground(new Color(0, 102, 153));
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 		
 		JButton btnSelect = new JButton("Start");
-		btnSelect.setFont(new Font("HelvLight", Font.PLAIN, 20));
-		btnSelect.setBounds(190, 118, 165, 35);
+		btnSelect.setBackground(new Color(153, 204, 255));
+		btnSelect.setForeground(new Color(0, 0, 0));
+		btnSelect.setFont(new Font("HelvLight", Font.BOLD, 20));
+		btnSelect.setBounds(185, 118, 165, 35);
 		contentPane.add(btnSelect);
 		
 		JRadioButton rdbtnEN = new JRadioButton("English");
+		rdbtnEN.setForeground(new Color(204, 204, 204));
+		rdbtnEN.setBackground(new Color(0, 0, 102));
 		rdbtnEN.setSelected(true);
-		rdbtnEN.setFont(new Font("HelvLight", Font.PLAIN, 20));
-		rdbtnEN.setBounds(164, 77, 99, 35);
+		rdbtnEN.setFont(new Font("HelvLight", Font.BOLD, 20));
+		rdbtnEN.setBounds(160, 77, 103, 35);
 		contentPane.add(rdbtnEN);
 		
 		JRadioButton rdbtnES = new JRadioButton("Espa\u00F1ol");
-		rdbtnES.setFont(new Font("HelvLight", Font.PLAIN, 20));
-		rdbtnES.setBounds(289, 77, 99, 35);
+		rdbtnES.setForeground(new Color(204, 204, 204));
+		rdbtnES.setBackground(new Color(0, 0, 102));
+		rdbtnES.setFont(new Font("HelvLight", Font.BOLD, 20));
+		rdbtnES.setBounds(274, 77, 103, 35);
 		contentPane.add(rdbtnES);
 		
 		ButtonGroup buttonGroup = new ButtonGroup();
@@ -58,12 +66,12 @@ public class langSelector extends JFrame {
         buttonGroup.add(rdbtnES);
         
         lblUK = new JLabel("");
-        lblUK.setBounds(190, 31, 60, 40);
+        lblUK.setBounds(185, 31, 60, 40);
         lblUK.setIcon(new ImageIcon("src/img/en_UK.png"));
         contentPane.add(lblUK);
         
         lblES = new JLabel("");
-        lblES.setBounds(295, 31, 60, 40);
+        lblES.setBounds(290, 31, 60, 40);
         lblES.setIcon(new ImageIcon("src/img/es_ES.png"));
         contentPane.add(lblES);
         
