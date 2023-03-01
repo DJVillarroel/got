@@ -44,7 +44,6 @@ public class Logic {
 	
 	public float percentageOfUsage(String word) {
 		float percentage = (mostAppearances.get(word)*100)/(float)words.length;
-		System.out.print(percentage);
 		return percentage;
 	}
 	
@@ -57,10 +56,13 @@ public class Logic {
 		LinkedList<String> toReturn = new LinkedList<String>();
 		LinkedList<Map.Entry<String, Integer>> sorted = new LinkedList<Map.Entry<String, Integer>>(map.entrySet());
 		sorted.sort(Map.Entry.comparingByValue(Comparator.reverseOrder())); //Compara los valores y ordena la lista de mayor a menor valor
-		for (int i=0; i<5; i++) { //Devuelve los 5 valores más altos
+		if (sorted.size()>=5) {
+			for (int i=0; i<5; i++) { //Devuelve los 5 valores más altos
+				toReturn.add(sorted.get(i).getKey());
+			}
+		} else for(int i=0;i<sorted.size();i++) {
 			toReturn.add(sorted.get(i).getKey());
 		}
-		System.out.print(toReturn);
 		return toReturn;
 	}
 }
