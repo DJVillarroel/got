@@ -1,21 +1,20 @@
 package got;
 
-import java.awt.BorderLayout;
-import java.awt.EventQueue;
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JComboBox;
 import javax.swing.ButtonGroup;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import java.awt.Font;
+import java.awt.Image;
+
 import javax.swing.JRadioButton;
 import java.util.Locale;
 import java.util.ResourceBundle;
 import javax.swing.JLabel;
 import java.awt.Color;
+import java.awt.Toolkit;
 
 
 public class langSelector extends JFrame {
@@ -30,6 +29,7 @@ public class langSelector extends JFrame {
 	 * Create the frame.
 	 */
 	public langSelector() {
+		setIconImage(Toolkit.getDefaultToolkit().getImage(langSelector.class.getResource("/img/icon.png")));
 		setTitle("Select language/Seleccione idioma");
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 560, 200);
@@ -67,16 +67,16 @@ public class langSelector extends JFrame {
         
         lblUK = new JLabel("");
         lblUK.setBounds(185, 31, 60, 40);
-        lblUK.setIcon(new ImageIcon("src/img/en_UK.png"));
+        lblUK.setIcon(new ImageIcon(langSelector.class.getResource("/img/en_UK.png")));
         contentPane.add(lblUK);
         
         lblES = new JLabel("");
         lblES.setBounds(290, 31, 60, 40);
-        lblES.setIcon(new ImageIcon("src/img/es_ES.png"));
+        lblES.setIcon(new ImageIcon(langSelector.class.getResource("/img/es_ES.png")));
         contentPane.add(lblES);
         
         
-        btnSelect.addActionListener(e -> {
+        btnSelect.addActionListener(e -> { //Selecciona el lenguaje, toma los archivos de recursos en la carpeta /cfg/
             if (rdbtnEN.isSelected()) {
                 r = ResourceBundle.getBundle("cfg/resources_EN", Locale.ENGLISH);
             } else if (rdbtnES.isSelected()) {

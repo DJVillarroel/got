@@ -4,6 +4,11 @@ import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 
+
+/**
+ * @Class launcher clase que inicializa la aplicación y los respectivos JFrames
+*/
+
 public class launcher {
 	
 	private static JFrame frame;
@@ -13,7 +18,7 @@ public class launcher {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					crearFrames();
+					crearFrame();
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -22,7 +27,8 @@ public class launcher {
 		
 	}
 	
-	private static void crearFrames() {
+	//Inicializa el frame principal de la aplicación
+	private static void crearFrame() {
 		frame = new langSelector();
 		frame.setVisible(true);
 	}

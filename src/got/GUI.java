@@ -14,19 +14,20 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import java.awt.event.ActionListener;
 import java.io.File;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.util.LinkedList;
 import java.util.ResourceBundle;
-import java.util.Scanner;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
-import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
 import javax.swing.JTextPane;
 import java.awt.Color;
 import java.awt.SystemColor;
+import java.awt.Toolkit;
 
+
+/**
+	@class GUI
+	interfaz gráfica principal de la aplicación
+*/
 public class GUI extends JFrame {
 
 	private ResourceBundle resources;
@@ -47,6 +48,7 @@ public class GUI extends JFrame {
 	public GUI(ResourceBundle res) {
 		logica = new Logic();
 		resources = res;
+		setIconImage(Toolkit.getDefaultToolkit().getImage(GUI.class.getResource("/img/icon.png")));
 		setTitle(resources.getString("title"));
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 752, 348);
@@ -59,7 +61,7 @@ public class GUI extends JFrame {
 		btnDir = new JButton(resources.getString("dir"));
 		btnDir.setBackground(new Color(153, 204, 255));
 		btnDir.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //Leer directorio
 				
 				if (openFileChooser()) btnStart.setEnabled(true);
 				
@@ -81,7 +83,7 @@ public class GUI extends JFrame {
 		btnExit = new JButton(resources.getString("exit"));
 		btnExit.setBackground(new Color(153, 204, 255));
 		btnExit.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //Salir de la aplicación
 				System.exit(0);
 			}
 		});
@@ -89,7 +91,7 @@ public class GUI extends JFrame {
 		btnStart = new JButton(resources.getString("start"));
 		btnStart.setBackground(new Color(153, 204, 255));
 		btnStart.addActionListener(new ActionListener() {
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent e) { //Leer archivo de texto
 				logica.readTxtFile(selectedFile);
 				setTextFields();
 			}
@@ -130,6 +132,7 @@ public class GUI extends JFrame {
 		contentPane.add(tpPercent);
 	}
 	
+	//Llena los campos de texto con las palabras más utilizadas del archivo de texto leído
 	protected void setTextFields() {
 		String output = "";
 		String percentOutput = "";
@@ -142,7 +145,8 @@ public class GUI extends JFrame {
 	}
 
 
-
+	//Inicializa la ventana para seleccionar/abrir un archivo
+	//Devuelve verdadero si el usuario seleccionó un archivo
 	private boolean openFileChooser() {
 		boolean opened = false;
 		JFileChooser fileChooser = new JFileChooser();
